@@ -10,6 +10,8 @@ const logo = document.querySelector(".logo");
 const hamburgerSearch = document.querySelector(".hamburgerSearch");
 const responsiveHamburger = document.querySelector(".responsiveHamburger");
 const body = document.querySelector(".body");
+const emailBox = document.querySelector(".emailBox");
+const footer = document.querySelector(".footer");
 
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
@@ -24,4 +26,19 @@ hamburger.addEventListener("click", () => {
   hamburgerSearch.classList.toggle("active");
   responsiveHamburger.classList.toggle("active");
   body.classList.toggle("active");
+  emailBox.classList.toggle("active");
+  footer.classList.toggle("active");
 });
+
+document.getElementById('emailInput').addEventListener('submit', function(event) {
+    
+    var emailInputByUser = document.getElementById('email').value;
+    var emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (emailCheck.test(emailInputByUser)) {
+        alert('Thank you for subscribing!');
+    } else {
+        alert('The email you entered is not valid.');
+    }
+});
+

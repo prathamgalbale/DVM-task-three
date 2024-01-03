@@ -23,8 +23,6 @@ main{
     padding: 28px 60px;
     font-size: 18px;
     font-weight: 300;
-    /* transition: transform 0.3s ease 0.3s left ;
-    transform-origin: left; */
 }
 .header.active{
     background-color: #131313;
@@ -73,6 +71,13 @@ main{
 .body.active{
     display: none;
 }
+.emailBox.active{
+    display: none;
+}
+.footer.active{
+    display: none;
+}
+
 svg:hover{
     cursor: pointer;
     fill: #00EA6C;
@@ -560,8 +565,87 @@ h1{
     position: absolute;
     z-index: 1;
     animation: rotate 30s linear infinite;
-    right: 70px;
+    right: 140px;
     top: -40px;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+}
+
+
+.emailBox{
+    width: 100%;
+    margin: 0;
+    background-color: #00EA6C;
+    color: #131313;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 ;
+    font-size: 20px;
+    font-weight: 200;
+}
+.email{
+    width: 700px;
+    color: #131313;
+    padding: 10px;
+    background-color: #00EA6C;
+    border-color: #00EA6C;
+    border-bottom: 0.5px solid #131313;
+}
+.email:hover{
+    border: none;
+    outline: none;
+}
+.emailSubmit{
+    fill: #131313;
+    stroke: #131313;
+    background-color: #00EA6C;
+    border: none;
+    outline: none;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+.emailSubmit:hover{
+    transform: translateX(20px) rotate(90deg);
+}
+.emailInput{
+    white-space: nowrap;
+}
+
+.footer{
+    background-color: #131313;
+    color: #faf9f7;
+    font-size: 30px;
+    padding: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+}
+.footerOne{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+}
+.donateFooter{
+    position: relative;
+}
+.donateVideo{
+    max-width: 180px;
+    padding-top: 30px;
+}
+.donateIcon{
+    position: absolute;
+    left: -30px;
+    animation: rotate 30s linear infinite;
 }
 @keyframes rotate {
     from {
