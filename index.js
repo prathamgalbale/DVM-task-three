@@ -49,17 +49,6 @@ document.getElementById('emailInput').addEventListener('submit', function(event)
 
 
 
-let lastScrollPosition = 0;
 
-    window.addEventListener('scroll', function() {
-      const currentScrollPosition = window.scrollY;
 
-      if (currentScrollPosition < lastScrollPosition) {
-        // Scrolling up
-        console.log('Scrolling up!');
-      }
-
-      // Update last scroll position
-      lastScrollPosition = currentScrollPosition;
-    });
 
