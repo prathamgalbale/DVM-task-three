@@ -2,6 +2,7 @@ body{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     background-color: #faf9f7;
+    overflow-x: hidden;
 }
 hr {
     border: 1px solid #424242;
@@ -271,6 +272,9 @@ h1{
     align-items: center;
     z-index: 1;
 }
+.responsiveMainBody{
+    display: none;
+}
 .mainBodyText{
     flex: 1;
     font-size: 40px;
@@ -294,90 +298,126 @@ h1{
 .mainImageVideoOne{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    flex: 1;
+    justify-content:center;
     color: #131313;
     font-size: 30px;
     font-weight: 400;
-    margin-bottom: 50px;
-}
-.imageVideoOne{
-    position: relative;
-    width: 40%;
+    margin-bottom: 100px;
 }
 .mainImageOne{
     max-width: 500px;
-    flex: 1;
+    height: auto;
 }
 .mainVideoOne{
-    flex: 1;
-    z-index: 1;
-    max-width: 500px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none;    
 }
+.mainOne{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 50px;
+    font-size: 40px;
+    font-weight: 300;
+}
+.mainOneContents{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mainFont{
+    font-size: 20px;
+    font-weight: 200;
+    padding-right: 50px;
+}
+.mainFontSpecial{
+    font-size: 20px;
+    font-weight: 200;
+}
+.mainSpecialArrow{
+    transition: transform 0.3s ease;
+}
+.mainFontSpecial:hover{
+    color: #00EA6C;
+    cursor: pointer;
+}
+
+
 .leftArrow{
     transition: transform 0.3s ease;
     fill: black; 
     stroke:black;
     padding-bottom: 30px;
+    transform: rotate(-90deg);
+}
+.wheelchairIcon{
+    padding-top: 20px;
+    right:0%;
 }
 .mainImageVideoOne:hover{ 
+    .mainImageOne{
+        display: none;
+    }
     .mainVideoOne{
-        opacity: 2;
+        display:flex;
+        height: auto;
+        max-width: 500px;
+        transition: opacity 0.3s ease;
     }
     .leftArrow{
-        transform: rotate(-90deg) translateX(-10px);
+        transform: rotate(-90deg) translateY(-10px);
         fill:#00EA6C;
         stroke: #00EA6C;
     }
+    
 }
 
 .mainImageVideoTwo{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-content: center;
-    flex: 1;
     color: #131313;
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 50px;
 }
-.imageVideoTwo{
-    position: relative;
-    width: 40%;
+.mainTwo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 50px;
+    font-size: 40px;
+    font-weight: 300;
 }
 .mainImageTwo{
     max-width: 500px;
-    flex: 1;
+    height: auto;
 }
 .mainVideoTwo{
-    flex: 1;
-    z-index: 1;
-    max-width: 500px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none;
 }
 .rightArrow{
     transition: transform 0.3s ease;
     fill: black; 
     stroke:black;
-    padding-bottom: 30px;
+    transform: rotate(90deg);
+}
+.stairIcon{
+    padding-top: 20px;
 }
 .mainImageVideoTwo:hover{ 
+    .mainImageTwo{
+        display: none;
+    }
     .mainVideoTwo{
-        opacity: 2;
+        display:flex;
+        height: auto;
+        max-width: 500px;
+        transition: opacity 0.3s ease;
     }
     .rightArrow{
-        transform: rotate(90deg) translateX(10px);
+        transform: rotate(90deg) translateY(-10px);
         fill:#00EA6C;
         stroke: #00EA6C;
     }
@@ -389,6 +429,9 @@ h1{
     margin: 0 0 40px 114px;
     font-weight: 500;
     background-color: rgba(0, 0, 0, 0);
+}
+.responsiveMainBottom{
+    display: none;
 }
 .mainBottomSpecial{
     color: #00EA6C;
@@ -409,17 +452,25 @@ h1{
         z-index: -1;
     }
 }
+.bottomExtra{
+    font-size: 30px; 
+    font-weight: 200; 
+    margin: 0 0 40px 114px;
+}
+
 
 .bottomBody{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13, 70px));
     grid-template-rows: repeat(6, 260px);
+    grid-template-columns: repeat(13,1fr);
     gap: 25px;
-    justify-content: center;
     width: 100%;
     align-items: end;
     justify-content: center;
-    /* padding: 0 48px; */
+    margin-bottom: -100px;
+}
+.responsiveBottomBody{
+    display: none;
 }
 
 .bottomImageVideoOne{
@@ -428,20 +479,21 @@ h1{
     position: relative;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-around; */
-    /* align-content: center; */
     flex: 1;
     color: #131313;
 }
 .bottomImageOne{
     margin-left: 25px;
-    max-width: 430px;
-    max-height: 540px;
+    aspect-ratio: 3/4;
+    width: 100%;
+    max-height:540px ;
 }
 .bottomVideoOne{
     z-index: 1;
+    aspect-ratio: 3/4;
+    height: 100%;
     max-width: 430px;
-    clip: rect(0, auto, 540px, 0);
+    object-fit: cover;
     position: absolute;
     left: 25px;
     top: 0;
@@ -478,15 +530,16 @@ h1{
     color: #131313;
 }
 .bottomImageTwo{
-    max-width: 540px;
-    max-height: 300px;
+    aspect-ratio: 4/3;
+    clip-path:inset(5.2% 0%); 
 }
 .bottomVideoTwo{
     z-index: 1;
-    max-height: 300px;
+    width: 100%;
+    overflow: hidden;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 3.65%;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -520,32 +573,31 @@ h1{
 
 .theTunnel{
     grid-row: 5/6;
-    grid-column: 4/10;
+    grid-column: 6/12;
     justify-content: center;
     display: flex;
     flex-direction: row;
-    position: relative;
 }
 .tunnelImage{
     max-width: 200px;
     max-height: 250px;
 }
 .tunnelVideo{
-    z-index: 1;
-    max-height: 250px;
-    position: absolute;
-    left: 75px;
-    top: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none;
+    
 }
 .theTunnel:hover{
+    .tunnelImage{
+        display: none;
+    }
     .tunnelVideo{
-        opacity: 1;
+        display: flex;
+        max-height: 250px;
+        transition: opacity 0.3s ease;
     }
 }
 .lastBody{
-    margin: -0, 48px;
+    margin: 0, 48px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -555,11 +607,15 @@ h1{
 .lastBody:hover{
     cursor: pointer;
 }
+.lastRoots{
+    max-width: 550px; 
+    height: auto;            
+}
 .lastFont{
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    align-content:space-between ;
+    align-content:space-between ;   
 }
 .rotatingIcon{
     position: absolute;
@@ -586,6 +642,7 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     padding: 100px 0 ;
     font-size: 20px;
@@ -656,11 +713,97 @@ h1{
       }
 }
 
+.responsiveFooter{
+    display: none;
+}
 
 
 
+@media only screen and (max-width: 970px) {
+    main{
+        padding: 0 24px;
+    }
 
-@media only screen and (max-width: 481px) {
+    .h2Text{
+        text-align: center;
+        font-size: 55px;
+        font-weight: 600;
+        padding: 0;
+    }
+    .mainImageVideoOne{
+        display: flex;
+        flex-direction: column;
+    }
+    .mainOne{
+        padding: 0;
+    }
+    .mainImageOne{
+        max-width: 100%;
+        height: auto;
+    }
+    .mainVideoOne{
+        width: 100%;
+        height: auto;
+    }
+    .leftArrow{
+        padding-top: 20px;
+        transform: rotate(0deg);
+    }
+    .mainImageVideoOne:hover{ 
+        .mainVideoOne{
+            max-width:100%;
+        }
+        .leftArrow{
+            transform: rotate(0deg) translateY(-10px);
+        }   
+    }
+    .mainImageVideoTwo{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    .mainTwo{
+        padding: 0;
+    }
+    .mainImageTwo{
+        max-width: 100%;
+        height: auto;
+    }
+    .mainVideoTwo{
+        width: 100%;
+        height: auto;
+    }
+    .rightArrow{
+        padding-top: 20px;
+        transform: rotate(0deg);
+    }
+    .mainImageVideoTwo:hover{ 
+        .mainVideoTwo{
+            max-width:100%;
+        }
+        .rightArrow{
+            transform: rotate(0deg) translateY(-10px);
+        }   
+    }
+
+
+    .footer{
+        display: none;
+    }
+    .responsiveFooter{
+        background-color: #131313;
+        padding: 24px;
+        color: #faf9f7;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        align-content:space-between ;
+        align-items: center;
+    }
+}
+
+
+@media only screen and (max-width: 750px) {
     .nav.active{
         background-color: #131313;
         border-bottom: 2px solid #424242;
@@ -723,5 +866,140 @@ h1{
         padding: 20px;
         font-weight: 200;
         font-size: 10px;
+    }
+    .responsiveFooter.active{
+        display: none;
+    }
+
+    main{
+        padding: 0 24px;
+    }
+
+    .bodyHeading{
+        font-size: 80px;
+        font-weight: 600;
+        width: 100%;
+        margin-bottom: -20;
+        padding-left: 20px;
+    }
+    .mainBody{
+        display: none;
+    }
+    .responsiveMainBody{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+    .mainBodyText{
+        font-size: 30px;
+    }
+    .mainTextException{
+        font-size: 20px;
+    }
+    .mainSwipe{
+        display: flex;
+        font-size: 10px;
+        padding-bottom: 20px;
+        justify-content: center;
+    }
+
+    .mainBottom{
+        display: none;
+    }
+    .responsiveMainBottom{
+        display: flex;
+        flex-direction: column;
+        font-size: 45px;
+        font-weight: 500;
+        padding-bottom: 30px;
+    }
+    .bottomExtra{
+        font-size: 20px; 
+        font-weight: 200; 
+        margin: 0;
+    }
+
+    
+    .bottomText{
+        padding-top: 20px;
+        grid-row: 3/5;
+        grid-column: 2/8;
+        font-size: 20px;
+        font-weight: 200;
+    }
+    .bottomFontOne{
+        font-size: 30px;
+        font-weight: 300;
+        padding: 20px;
+    }
+    .bottomFontTwo{
+        /* white-space: nowrap; */
+        font-weight: 200;
+        font-size: 10px;
+        /* padding-top: 20px; */
+    }
+
+    .lastBody{
+        margin: -0, 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .lastRoots{
+        width: 100%; 
+        height: auto;            
+    }
+    .lastFont{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content:space-between ;
+        margin-bottom: 50px;   
+    }
+    .rotatingIcon{
+        right:100px;
+        top: 450px;
+    }
+
+   .email{
+        justify-items: center;
+        width: 80%;
+    }
+    .emailStatement{
+        margin-left: 30px;
+    }
+    
+}
+
+@media only screen and (max-width: 481px) {
+    .bottomBody{
+        display: none;
+    }
+    .responsiveBottomBody{
+        display: flex;
+        flex-direction: column;
+    }
+    .responsiveBottomContents{
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+    }
+    .bottomImageOne{
+        padding: 0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    .bottomImageTwo{
+        padding: 0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    .tunnelImage{
+        margin-bottom: 20px;
     }
 }

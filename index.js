@@ -12,6 +12,7 @@ const responsiveHamburger = document.querySelector(".responsiveHamburger");
 const body = document.querySelector(".body");
 const emailBox = document.querySelector(".emailBox");
 const footer = document.querySelector(".footer");
+const responsiveFooter = document.querySelector(".responsiveFooter");
 
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
@@ -28,6 +29,7 @@ hamburger.addEventListener("click", () => {
   body.classList.toggle("active");
   emailBox.classList.toggle("active");
   footer.classList.toggle("active");
+  responsiveFooter.classList.toggle("active");
 });
 
 document.getElementById('emailInput').addEventListener('submit', function(event) {
@@ -41,4 +43,23 @@ document.getElementById('emailInput').addEventListener('submit', function(event)
         alert('The email you entered is not valid.');
     }
 });
+
+
+
+
+
+
+let lastScrollPosition = 0;
+
+    window.addEventListener('scroll', function() {
+      const currentScrollPosition = window.scrollY;
+
+      if (currentScrollPosition < lastScrollPosition) {
+        // Scrolling up
+        console.log('Scrolling up!');
+      }
+
+      // Update last scroll position
+      lastScrollPosition = currentScrollPosition;
+    });
 
