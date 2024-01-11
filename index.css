@@ -304,22 +304,56 @@ h1{
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-around;
     align-items: center;
-    z-index: 1;
     animation: fadeInTwo 1s ease-in-out forwards;
+    z-index: 1;
 }
 .responsiveMainBody{
     display: none;
+}
+
+  
+
+  .carouselItemOne,
+  .carouselItemTwo {
+    will-change: transform;
+  }
+
+.carousel{
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carouselItemOne,
+.carouselItemTwo{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    flex: 0 0 auto;
 }
 .mainBodyText{
     flex: 1;
     font-size: 40px;
     font-weight: 300;
-    
 }
+
+.prev,
+.next{
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.hidden {
+    display: none;
+  }
+
 .rootsImage{
-    width: 100%;height: auto;
+    margin-left: 150px;
+    max-width: 80%;
+    height: auto;
+    aspect-ratio: 16/9; 
     transform:  translateY(-30px) rotateZ(45deg);
     transform-origin: top left;
     animation: rotateAndFadeIn 1s ease-in-out forwards;
@@ -336,20 +370,31 @@ h1{
 }
 
 .mainTextException{
-    font-size: 30px;
+    font-size: 25px;
     color: #00EA6C;
 }
 .mainTextException:hover{
     cursor: pointer;
     color: #131313;
 }
+
+
 .h2Text{
     text-align: right;
     font-size: 60px;
     font-weight: 600;
     margin: -6px;
     padding: 0;
+    transform: translateX(-100px);
+    transition: transform 0.5s ease-out;
 }
+
+.h2Text.translate {
+    transform: translateX(0);
+}
+
+
+
 .mainImageVideoOne{
     display: flex;
     flex-direction: row;
@@ -493,24 +538,16 @@ h1{
     position: relative;
 }
 .bottomLineVideo{
-    z-index: 1;
+    z-index: -1;
     max-width: 500px;
     position: absolute;
-    left: 0;
-    top: 0;
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-.mainBottomSpecial:hover{
-    .bottomLineVideo{
-        opacity: 1;
-        z-index: -1;
-    }
 }
 .bottomExtra{
     font-size: 30px; 
     font-weight: 200; 
-    margin: 0 0 40px 114px;
+    margin: 0 0 150px 114px;
 }
 
 
@@ -639,7 +676,6 @@ h1{
 }
 .tunnelVideo{
     display: none;
-    
 }
 .theTunnel:hover{
     .tunnelImage{
@@ -651,6 +687,14 @@ h1{
         transition: opacity 0.3s ease;
     }
 }
+
+
+.parallax-container {
+    overflow: hidden;
+  }
+  
+
+
 .lastBody{
     margin: 0, 48px;
     display: flex;
@@ -929,6 +973,7 @@ h1{
     main{
         padding: 0 24px;
         animation: fadeInTwo 1s ease-in-out forwards;
+        overflow-x: hidden;
     }
 
     .bodyHeading{
@@ -942,11 +987,25 @@ h1{
         display: none;
     }
     .responsiveMainBody{
+        display: contents;
+        animation: fadeInTwo 1s ease-in-out forwards;
+        
+    }
+    .responsiveCarousel {
+        display: flex;
+        width: 200%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .responsiveCarouselItem{
+        width: 50%; 
+        flex-shrink: 0;
         display: flex;
         flex-direction: column;
         justify-items: center;
-        animation: fadeInTwo 1s ease-in-out forwards;
+        margin-right: 30px;
     }
+
     .mainBodyText{
         font-size: 30px;
     }
@@ -990,10 +1049,8 @@ h1{
         padding: 20px;
     }
     .bottomFontTwo{
-        /* white-space: nowrap; */
         font-weight: 200;
         font-size: 10px;
-        /* padding-top: 20px; */
     }
 
     .lastBody{
