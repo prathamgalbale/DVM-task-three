@@ -119,23 +119,22 @@ handleParallax();
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const h2TextElements = document.querySelectorAll('.h2Text');
+const h2TextElements = document.querySelectorAll('.h2Text');
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('translate');
-            } else {
-                entry.target.classList.remove('translate');
-            }
-        });
-    }, { threshold: 0.5 });
-
-    h2TextElements.forEach(element => {
-        observer.observe(element);
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('translate');
+        } else {
+            entry.target.classList.remove('translate');
+        }
     });
+}, { threshold: 0.5 });
+
+h2TextElements.forEach(element => {
+    observer.observe(element);
 });
+
 
 
 
